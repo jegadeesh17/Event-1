@@ -2,15 +2,6 @@
 import pygame
 import random
 import sys
-
-# Constants
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
-WHITE = (255, 255, 255)
-TRASH_COLORS = {"Recyclable": (0, 128, 0), "Compost": (255, 165, 0), "Landfill": (128, 128, 128)}
-TRASH_TYPES = ["Recyclable", "Compost", "Landfill"]
-BIN_COLORS = {"Recyclable": (0, 128, 0), "Compost": (255, 165, 0), "Landfill": (128, 128, 128)}
-
 class TrashItem(pygame.sprite.Sprite):
     def _init_(self):
         super()._init_()
