@@ -1,0 +1,35 @@
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{
+    public int score = 0;
+    public int timeLeft = 60;
+    public bool isGameOver = false;
+
+    private void Start()
+    {
+        // Initialize game state
+        score = 0;
+        timeLeft = 60;
+        isGameOver = false;
+    }
+
+    private void Update()
+    {
+        if (!isGameOver)
+        {
+            // Update game time and check for game over condition
+            timeLeft -= Time.deltaTime;
+            if (timeLeft <= 0)
+            {
+                GameOver();
+            }
+        }
+    }
+
+    public void GameOver()
+    {
+        isGameOver = true;
+        // Implement game over logic, e.g., display game over screen
+    }
+}
