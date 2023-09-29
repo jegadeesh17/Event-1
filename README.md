@@ -1,3 +1,6 @@
+This is a trash sorting which includes the below modules and the user will be able to seperate and organise the trash accordingly 
+we hope to give a pleasant user experience
+
 Game Structure:
 1. Game Manager:
 Manages the overall game state, including starting and ending the game.
