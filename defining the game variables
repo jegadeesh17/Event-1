@@ -1,0 +1,10 @@
+using UnityEngine;
+
+public class ImageSortingGame : MonoBehaviour
+{
+    public GameObject[] imageObjects; // Image objects to sort.
+    public GameObject[] colorBins;    // Color bins where images are sorted.
+    
+    private GameObject currentImage;  // The image currently being dragged.
+    private bool isDragging = false;  // Flag to check if an image is being dragged.
+}
