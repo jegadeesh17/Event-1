@@ -1,4 +1,3 @@
-# Event for Trash Sorting
 import pygame
 import random
 import sys
