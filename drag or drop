@@ -1,0 +1,55 @@
+void Update()
+{
+    if (Input.GetMouseButtonDown(0))
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            currentImage = hit.collider.gameObject;
+
+            // Check if the clicked object is an image.
+            if (Array.Exists(imageObjects, img => img == currentImage))
+            {
+                isDragging = true;
+            }
+        }
+    }
+
+    if (Input.GetMouseButtonUp(0) && isDragging)
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            GameObject targetBin = hit.collider.gameObject;
+
+            // Check if the target bin matches the image's color.
+            if (Array.Exists(colorBins, bin => bin == targetBin && ImageMatchesColor(currentImage, targetBin)))
+            {
+                // Correctly sorted, destroy the image object.
+                Destroy(currentImage);
+            }
+
+            isDragging = false;
+        }
+    }
+
+    // While dragging, move the image with the mouse.
+    if (isDragging)
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        currentImage.transform.position = mousePos;
+    }
+}
+
+bool ImageMatchesColor(GameObject image, GameObject bin)
+{
+    // Implement logic to check if the image matches the color of the bin.
+    // You may need to assign tags, materials, or colors to your image objects.
+    // Return true if they match; otherwise, return false.
+    return false; // Placeholder logic; replace with your implementation.
+}
